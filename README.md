@@ -2,13 +2,11 @@
 
 
 
-Add a README to the GitHub repo of each microservice (or update it if you already have one) that contains your communication contract. (Once you define it, don't change it! Your teammates are relying on you.) README must contain...
-
-A description of what the microservice does.
-
 
 
 ### **Description of the Microservice:**
+
+
 
 Using ZMQ, a context (socket container / manager) is created in order to create a socket, which is used to send and receive messages between programs. Once the socket is created, it is then bound to a specific PORT to listen for requests.
 
@@ -18,44 +16,50 @@ The microservice receives a list of helpful tips (minimum 2 unique items) from U
 
 
 
+
+
 ### **Required Packages:**
 
-**Python: json, random, pyzmq**
+
+
+**Python**: json, random, pyzmq
 
 
 
-**pip install pyzmq**
+pip install pyzmq
 
 
 
-**import statements:
-import json**
+**import statements**:
+import json
 
-**import random**
+import random
 
-**import zmq**
-
-
-
-**Unity: NuGet package manager, NetMQ, NewtonSoft**
+import zmq
 
 
 
-**using statements:** 
+**Unity**: NuGet package manager, NetMQ, NewtonSoft
 
-**using System.Collections.Generic;**
 
-**using System;**
 
-**using UnityEngine;**
+**using statements**: 
 
-**using TMPro;**
+using System.Collections.Generic;
 
-**using NetMQ;**
+using System;
 
-**using NetMQ.Sockets;**
+using UnityEngine;
 
-**using Newtonsoft.Json.Linq;**
+using TMPro;
+
+using NetMQ;
+
+using NetMQ.Sockets;
+
+using Newtonsoft.Json.Linq;
+
+
 
 
 
@@ -102,7 +106,7 @@ In your GetTip() method: client.SendFrame(listOfTipsAsJson);
 
 ### **Receiving Data:**
 
-Clear instructions for how to programmatically RECEIVE data from the microservice. Include an example call.
+
 
 1. Try to receive response from microservice.
 
@@ -150,7 +154,11 @@ Clear instructions for how to programmatically RECEIVE data from the microservic
 
 
 
+
+
 ### **UML sequence diagram:**
+
+
 
 showing how requesting and receiving data works. Make it detailed enough that your teammates (and your grader) will understand.
 
@@ -189,4 +197,8 @@ Members are expected to attend scheduled meetings or notify the team ahead of ti
 #### **Scope Control**
 
 The team will prioritize completing core features first. Additional features or polish will only be added after core requirements are stable.
+
+
+
+
 
