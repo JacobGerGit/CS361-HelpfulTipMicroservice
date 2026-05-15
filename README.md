@@ -164,7 +164,31 @@ In your GetTip() method: client.SendFrame(listOfTipsAsJson);
 
 
 
-showing how requesting and receiving data works. Make it detailed enough that your teammates (and your grader) will understand.
+```mermaid
+sequenceDiagram
+    participant User
+    participant Unity as Unity Client<br/>GetHelpfulTip.cs
+    participant NetMQ as NetMQ Request Socket
+    participant Python as Python Microservice<br/>ZMQ Reply Socket
+
+    User->>Unity: Clicks Get Tip button
+    Unity->>Unity: Wraps List<string> tips in TipListWrapper
+    Unity->>Unity: Converts tips list to JSON
+    Unity->>NetMQ: SendFrame(listOfTipsAsJson)
+    NetMQ->>Python: Sends JSON request as bytes
+
+    Python->>Python: Receives raw bytes
+    Python->>Python: Decodes bytes into JSON
+    Python->>Python: Extracts tips list
+    Python->>Python: Selects random tip different from lastTip
+    Python->>Python: Creates JSON response with "tip" key
+
+    Python->>NetMQ: Sends response JSON as bytes
+    NetMQ->>Unity: Receives response JSON
+    Unity->>Unity: Parses JSON response
+    Unity->>Unity: Extracts "tip" value
+    Unity->>User: Displays helpful tip in UI
+```
 
 
 
