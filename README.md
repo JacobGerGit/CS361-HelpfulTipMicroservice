@@ -43,7 +43,7 @@ import zmq
 
 
 
-**using statements**: 
+**using statements**:
 
 using System.Collections.Generic;
 
@@ -82,24 +82,26 @@ In Awake(): client.Connect($"tcp://127.0.0.1:{PORT}");
 3. Create a list of string tips
 
 Ex.
-Declaration: private List<string> tips = new List<string>{"tip1","tip2","etc..."} 
+Declaration: private List<string> tips = new List<string>{"tip1","tip2","etc..."}
 
 4. Using a helper class, wrap the list (so Unity's Json Utility can parse it) and convert to Json.
 
 Ex.
 In Awake(): listOfTipsAsJson = JsonUtility.ToJson(new TipListWrapper{tips = this.tips});
-Helper Class: 
+Helper Class:
 \[System . Serializable]
 public class TipListWrapper
 {
-    public List<string> tips;
+public List<string> tips;
 }
+
 
 
 5. Send the Json string to the microservice
 
 Ex.
 In your GetTip() method: client.SendFrame(listOfTipsAsJson);
+
 
 
 
@@ -123,6 +125,7 @@ In your GetTip() method: client.SendFrame(listOfTipsAsJson);
 &#x20;  Otherwise,
 
 
+
 2\. Parse from bytes to JObject.
 
 
@@ -130,6 +133,7 @@ In your GetTip() method: client.SendFrame(listOfTipsAsJson);
 &#x20;  Ex.
 
 &#x20;  In GetTip() method: JObject parsedMessage = JObject.Parse(responseAsJson);
+
 
 
 3\. Pull out the string value
@@ -146,7 +150,7 @@ In your GetTip() method: client.SendFrame(listOfTipsAsJson);
 
 
 
-&#x20;  Ex. 
+&#x20;  Ex.
 
 &#x20;  Declaration: \[SerializeField] private TextMeshProUGUI helpfulTipText; // Make sure you drag your TextMeshPro UI into the Unity inspector
 
@@ -169,8 +173,8 @@ showing how requesting and receiving data works. Make it detailed enough that yo
 ### **Communication Contract:**
 
 
-**Communication Platform**
----
+
+## **Communication Platform**
 
 All team communication will be done through Discord. Important decisions, updates, and announcements must be posted in the main project channel so everyone can see them.
 
@@ -197,8 +201,6 @@ Members are expected to attend scheduled meetings or notify the team ahead of ti
 #### **Scope Control**
 
 The team will prioritize completing core features first. Additional features or polish will only be added after core requirements are stable.
-
-
 
 
 
