@@ -13,7 +13,6 @@ lastTip = ""
 randomTip = ""
 
 while True:
-    # Receive the tips list from unity as raw bytes
     rawBytes = socket.recv()
 
     print(f"Received raw bytes: {rawBytes}")
@@ -28,7 +27,6 @@ while True:
         # Avoid picking the same tip back to back
         randomTip = lastTip
         while randomTip == lastTip:
-            # Select a random tip from the list
             randomTip = random.choice(tipsList)
         lastTip = randomTip
 
@@ -40,5 +38,4 @@ while True:
     response_dict = {"tip": randomTip}
     response_json_string = json.dumps(response_dict)
 
-    # Send the JSON string back to Unity encoded as bytes
     socket.send(response_json_string.encode('utf-8'))
